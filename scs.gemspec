@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
 
   spec.files         = Dir["*.{md,txt}", "{ext,lib}/**/*", "vendor/scs/*", "vendor/scs/{include,linsys,src,test}/**/*"]
   spec.require_path  = "lib"
-  spec.extensions    = ["ext/scs/Rakefile"]
+  spec.extensions    = ["ext/scs/extconf.rb"]
 
   spec.required_ruby_version = ">= 2.4"
 

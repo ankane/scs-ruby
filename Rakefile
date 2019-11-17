@@ -8,4 +8,6 @@ Rake::TestTask.new do |t|
   t.warning = false
 end
 
-load "ext/scs/Rakefile"
+task :compile do
+  sh "ruby ext/scs/extconf.rb"
+end
