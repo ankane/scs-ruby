@@ -3,6 +3,11 @@ language: ruby
 rvm: 2.6.3
 before_script: bundle exec rake compile
 script: bundle exec rake test
+addons:
+  apt:
+    packages:
+      - libblas-dev
+      - liblapack-dev
 notifications:
   email:
     on_success: never
