@@ -3,6 +3,7 @@ language: ruby
 rvm: 2.6.3
 before_script: bundle exec rake compile
 script: bundle exec rake test
+cache: bundler
 addons:
   apt:
     packages:
