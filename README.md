@@ -4,7 +4,7 @@
 
 :fire: Supports many different [problem types](https://www.cvxpy.org/tutorial/advanced/index.html#choosing-a-solver)
 
-[![Build Status](https://travis-ci.org/ankane/scs.svg?branch=master)](https://travis-ci.org/ankane/scs)
+[![Build Status](https://travis-ci.org/ankane/scs.svg?branch=master)](https://travis-ci.org/ankane/scs) [![Build status](https://ci.appveyor.com/api/projects/status/wyn0cbgs0k5vg5tq/branch/master?svg=true)](https://ci.appveyor.com/project/ankane/scs/branch/master)
 
 ## Installation
 
