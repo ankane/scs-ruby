@@ -27,7 +27,7 @@ And solve it
 
 ```ruby
 solver = SCS::Solver.new
-result = solver.solve(data, cone)
+solver.solve(data, cone)
 ```
 
 ## Settings
