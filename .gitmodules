@@ -1,0 +1,3 @@
+[submodule "vendor/scs"]
+	path = vendor/scs
+	url = https://github.com/cvxgrp/scs.git
