@@ -14,8 +14,6 @@ Add this line to your application’s Gemfile:
 gem 'scs'
 ```
 
-If installation fails, you may need to install [dependencies](#dependencies).
-
 ## Getting Started
 
 Prep the problem
@@ -59,16 +57,6 @@ SCS comes with two solvers: a direct solver which uses a cached LDL factorizatio
 ```ruby
 SCS::Solver.new(indirect: true)
 ```
-
-## Dependencies
-
-BLAS and LAPACK are required for SCS.
-
-```sh
-sudo apt-get install libblas-dev liblapack-dev
-```
-
-On Heroku, use the [heroku-apt-buildpack](https://github.com/heroku/heroku-buildpack-apt).
 
 ## Resources
 
