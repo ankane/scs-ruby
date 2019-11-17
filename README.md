@@ -4,6 +4,8 @@
 
 :fire: Supports many different [problem types](https://www.cvxpy.org/tutorial/advanced/index.html#choosing-a-solver)
 
+[![Build Status](https://travis-ci.org/ankane/scs.svg?branch=master)](https://travis-ci.org/ankane/scs)
+
 ## Installation
 
 Add this line to your application’s Gemfile:
