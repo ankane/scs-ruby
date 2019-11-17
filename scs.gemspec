@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.author        = "Andrew Kane"
   spec.email         = "andrew@chartkick.com"
 
-  spec.files         = Dir["*.{md,txt}", "{ext,lib,vendor}/**/*"]
+  spec.files         = Dir["*.{md,txt}", "{ext,lib}/**/*", "vendor/scs/*", "vendor/scs/{include,linsys,src,test}/**/*"]
   spec.require_path  = "lib"
   spec.extensions    = ["ext/scs/Rakefile"]
 
