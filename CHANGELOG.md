@@ -1,4 +1,4 @@
-## 0.2.1 (unreleased)
+## 0.2.1 (2019-11-29)
 
 - Fixed installation on Windows
 - Removed dependency on rake for installation
