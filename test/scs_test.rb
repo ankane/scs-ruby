@@ -44,11 +44,6 @@ class SCSTest < Minitest::Test
   end
 
   def test_numo
-    # faster tests
-    skip if ENV["APPVEYOR"]
-
-    require "numo/narray"
-
     data = {
       a: Numo::NArray.cast([[1], [-1]]),
       b: Numo::NArray.cast([1, 0]),
