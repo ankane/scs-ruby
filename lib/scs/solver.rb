@@ -44,11 +44,6 @@ module SCS
       raise Error, "Error code #{ret}" if ret != 0
     end
 
-    def read_string(char_ptr)
-      idx = char_ptr.index { |v| v == 0 }
-      char_ptr[0, idx].map(&:chr).join
-    end
-
     def float_array(arr)
       # SCS float = double
       Fiddle::Pointer[arr.to_a.pack("d*")]
