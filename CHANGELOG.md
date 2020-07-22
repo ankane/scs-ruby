@@ -1,4 +1,4 @@
-## 0.2.2 (unreleased)
+## 0.2.2 (2020-07-21)
 
 - Updated SCS to 2.1.2
 
