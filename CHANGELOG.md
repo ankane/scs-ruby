@@ -1,3 +1,7 @@
+## 0.2.2 (unreleased)
+
+- Updated SCS to 2.1.2
+
 ## 0.2.1 (2019-11-29)
 
 - Fixed installation on Windows
