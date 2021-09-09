@@ -6,13 +6,13 @@ module SCS
 
     def solve(data, cone, **settings)
       cdata = create_data(data)
-      set_settings(cdata, settings)
+      settings = create_settings(settings)
       ccone = create_cone(cone)
 
       solution = calloc(ffi::Solution.size) # alloc clear memory
       info = ffi::Info.malloc
 
-      ffi.scs(cdata, ccone, solution, info)
+      ffi.scs(cdata, ccone, settings, solution, info)
 
       solution = ffi::Solution.new(solution)
       x = read_float_array(solution.x, cdata.n)
@@ -26,15 +26,19 @@ module SCS
         iter: info.iter,
         status: read_string(info.status),
         status_val: info.status_val,
+        scale_updates: info.scale_updates,
         pobj: info.pobj,
         dobj: info.dobj,
         res_pri: info.res_pri,
         res_dual: info.res_dual,
+        gap: info.gap,
         res_infeas: info.res_infeas,
-        res_unbdd: info.res_unbdd,
-        rel_gap: info.rel_gap,
+        res_unbdd_a: info.res_unbdd_a,
+        res_unbdd_p: info.res_unbdd_p,
         setup_time: info.setup_time,
-        solve_time: info.solve_time
+        solve_time: info.solve_time,
+        scale: info.scale,
+        comp_slack: info.comp_slack
       }
     end
 
@@ -114,6 +118,7 @@ module SCS
       cdata.m = m
       cdata.n = n
       cdata.a = csc_matrix(data[:a])
+      cdata.p = csc_matrix(data[:p]) if data[:p]
       cdata.b = float_array(data[:b])
       cdata.c = float_array(data[:c])
       cdata
@@ -121,8 +126,11 @@ module SCS
 
     def create_cone(cone)
       ccone = ffi::Cone.malloc
-      ccone.f = cone[:f].to_i
+      ccone.z = cone[:z].to_i
       ccone.l = cone[:l].to_i
+      ccone.bu = float_array(cone[:bu])
+      ccone.bl = float_array(cone[:bl])
+      ccone.bsize = cone[:bu].to_a.size
       ccone.q = int_array(cone[:q])
       ccone.qsize = cone[:q].to_a.size
       ccone.s = int_array(cone[:s])
@@ -134,10 +142,9 @@ module SCS
       ccone
     end
 
-    def set_settings(data, settings)
+    def create_settings(settings)
       set = ffi::Settings.malloc
-      data.stgs = set
-      ffi.scs_set_default_settings(data)
+      ffi.scs_set_default_settings(set)
 
       # hack for setting members with []=
       # safer than send("#{k}=", v)
