@@ -118,7 +118,10 @@ module SCS
       cdata.m = m
       cdata.n = n
       cdata.a = csc_matrix(data[:a])
-      cdata.p = csc_matrix(data[:p]) if data[:p]
+      if data[:p]
+        raise ArgumentError, "Bad p shape" if shape(data[:p]) != [n, n]
+        cdata.p = csc_matrix(data[:p])
+      end
       cdata.b = float_array(data[:b])
       cdata.c = float_array(data[:c])
       cdata
