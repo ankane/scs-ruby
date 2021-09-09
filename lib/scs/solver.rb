@@ -130,6 +130,9 @@ module SCS
       ccone.l = cone[:l].to_i
       ccone.bu = float_array(cone[:bu])
       ccone.bl = float_array(cone[:bl])
+      if cone[:bu].to_a.size != cone[:bl].to_a.size
+        raise ArgumentError, "Expected bu and bl size to match"
+      end
       ccone.bsize = cone[:bu].to_a.size
       ccone.q = int_array(cone[:q])
       ccone.qsize = cone[:q].to_a.size
