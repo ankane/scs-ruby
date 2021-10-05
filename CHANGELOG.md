@@ -1,4 +1,4 @@
-## 0.3.0 (unreleased)
+## 0.3.0 (2021-10-05)
 
 - Updated SCS to 3.0.0
 
