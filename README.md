@@ -51,7 +51,7 @@ solver.solve(data, cone, {
   verbose: true,              # write out progress
   warm_start: false,          # warm start
   acceleration_lookback: 10,  # memory for acceleration
-  acceleration_interval: 1,   # iterations to run Anderson acceleration
+  acceleration_interval: 10,  # iterations to run Anderson acceleration
   write_data_filename: nil,   # filename to write data if set
   log_csv_filename: nil       # write csv logs of various quantities
 })
