@@ -2,7 +2,7 @@ require_relative "test_helper"
 
 class SCSTest < Minitest::Test
   def test_version
-    assert_equal "2.1.4", SCS.lib_version
+    assert_equal "3.0.0", SCS.lib_version
   end
 
   def test_direct
@@ -12,7 +12,7 @@ class SCSTest < Minitest::Test
     solver = SCS::Solver.new
 
     result = solver.solve(data, cone, verbose: false)
-    assert_equal "Solved", result[:status]
+    assert_equal "solved", result[:status]
     assert_elements_in_delta [1], result[:x]
     assert_elements_in_delta [1, 0], result[:y]
     assert_elements_in_delta [0, 1], result[:s]
@@ -31,7 +31,7 @@ class SCSTest < Minitest::Test
     solver = SCS::Solver.new(indirect: true)
 
     result = solver.solve(data, cone, verbose: false)
-    assert_equal "Solved", result[:status]
+    assert_equal "solved", result[:status]
     assert_elements_in_delta [1], result[:x]
     assert_elements_in_delta [1, 0], result[:y]
     assert_elements_in_delta [0, 1], result[:s]
@@ -54,7 +54,7 @@ class SCSTest < Minitest::Test
     solver = SCS::Solver.new
 
     result = solver.solve(data, cone, verbose: false)
-    assert_equal "Solved", result[:status]
+    assert_equal "solved", result[:status]
     assert_elements_in_delta [1], result[:x]
     assert_elements_in_delta [1, 0], result[:y]
     assert_elements_in_delta [0, 1], result[:s]

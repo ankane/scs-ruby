@@ -11,3 +11,5 @@ end
 task :compile do
   sh "ruby ext/scs/extconf.rb"
 end
+
+CLEAN.include("vendor/scs/out")

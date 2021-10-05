@@ -39,16 +39,21 @@ Default values shown
 ```ruby
 solver.solve(data, cone, {
   normalize: true,            # heuristic data rescaling
-  scale: 1.0,                 # if normalized, rescales by this factor
-  rho_x: 1e-3,                # x equality constraint scaling
-  max_iters: 5000,            # maximum iterations to take
-  eps: 1e-5,                  # convergence tolerance
+  scale: 0.1,                 # if normalized, rescales by this factor
+  adaptive_scale: true,       # heuristically adapt dual scale through the solve
+  rho_x: 1e-6,                # x equality constraint scaling
+  max_iters: 1e5,             # maximum iterations to take
+  eps_abs: 1e-4,              # absolute feasibility tolerance
+  eps_rel: 1e-4,              # relative feasibility tolerance
+  eps_infeas: 1e-7,           # infeasibility tolerance
   alpha: 1.5,                 # relaxation parameter
-  cg_rate: 2.0,               # for indirect, tolerance goes down like (1/iter)^cg_rate
+  time_limit_secs: nil,       # time limit for solve run in seconds
   verbose: true,              # write out progress
   warm_start: false,          # warm start
   acceleration_lookback: 10,  # memory for acceleration
-  write_data_filename: nil    # filename to write data if set
+  acceleration_interval: 1,   # iterations to run Anderson acceleration
+  write_data_filename: nil,   # filename to write data if set
+  log_csv_filename: nil       # write csv logs of various quantities
 })
 ```
 
