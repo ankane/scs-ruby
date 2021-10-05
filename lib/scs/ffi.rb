@@ -70,7 +70,7 @@ module SCS
 
         m::Info = struct [
           "scs_int iter",
-          "char status[64]",
+          "char status[128]",
           "scs_int status_val",
           "scs_int scale_updates",
           "scs_float pobj",
@@ -84,7 +84,12 @@ module SCS
           "scs_float setup_time",
           "scs_float solve_time",
           "scs_float scale",
-          "scs_float comp_slack"
+          "scs_float comp_slack",
+          "scs_int rejected_accel_steps",
+          "scs_int accepted_accel_steps",
+          "scs_float lin_sys_time",
+          "scs_float cone_time",
+          "scs_float accel_time"
         ]
 
         m::Settings = struct [

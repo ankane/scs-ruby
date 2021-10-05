@@ -38,7 +38,12 @@ module SCS
         setup_time: info.setup_time,
         solve_time: info.solve_time,
         scale: info.scale,
-        comp_slack: info.comp_slack
+        comp_slack: info.comp_slack,
+        rejected_accel_steps: info.rejected_accel_steps,
+        accepted_accel_steps: info.accepted_accel_steps,
+        lin_sys_time: info.lin_sys_time,
+        cone_time: info.cone_time,
+        accel_time: info.accel_time
       }
     end
 
