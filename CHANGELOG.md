@@ -1,4 +1,4 @@
-## 0.3.1 (unreleased)
+## 0.3.1 (2021-10-08)
 
 - Fixed installation on Linux
 
