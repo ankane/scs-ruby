@@ -1,3 +1,7 @@
+## 0.3.1 (unreleased)
+
+- Fixed installation on Linux
+
 ## 0.3.0 (2021-10-05)
 
 - Updated SCS to 3.0.0
