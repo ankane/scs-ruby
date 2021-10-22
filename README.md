@@ -1,10 +1,10 @@
-# SCS
+# SCS Ruby
 
 [SCS](https://github.com/cvxgrp/scs) - the splitting conic solver - for Ruby
 
 :fire: Supports many different [problem types](https://www.cvxpy.org/tutorial/advanced/index.html#choosing-a-solver)
 
-[![Build Status](https://github.com/ankane/scs/workflows/build/badge.svg?branch=master)](https://github.com/ankane/scs/actions)
+[![Build Status](https://github.com/ankane/scs-ruby/workflows/build/badge.svg?branch=master)](https://github.com/ankane/scs-ruby/actions)
 
 ## Installation
 
@@ -81,22 +81,22 @@ On Heroku, use the [heroku-apt-buildpack](https://github.com/heroku/heroku-build
 
 ## History
 
-View the [changelog](https://github.com/ankane/scs/blob/master/CHANGELOG.md)
+View the [changelog](https://github.com/ankane/scs-ruby/blob/master/CHANGELOG.md)
 
 ## Contributing
 
 Everyone is encouraged to help improve this project. Here are a few ways you can help:
 
-- [Report bugs](https://github.com/ankane/scs/issues)
-- Fix bugs and [submit pull requests](https://github.com/ankane/scs/pulls)
+- [Report bugs](https://github.com/ankane/scs-ruby/issues)
+- Fix bugs and [submit pull requests](https://github.com/ankane/scs-ruby/pulls)
 - Write, clarify, or fix documentation
 - Suggest or add new features
 
 To get started with development:
 
 ```sh
-git clone --recursive https://github.com/ankane/scs.git
-cd scs
+git clone --recursive https://github.com/ankane/scs-ruby.git
+cd scs-ruby
 bundle install
 bundle exec rake compile
 bundle exec rake test

@@ -4,7 +4,7 @@ Gem::Specification.new do |spec|
   spec.name          = "scs"
   spec.version       = SCS::VERSION
   spec.summary       = "SCS - the splitting conic solver - for Ruby"
-  spec.homepage      = "https://github.com/ankane/scs"
+  spec.homepage      = "https://github.com/ankane/scs-ruby"
   spec.license       = "MIT"
 
   spec.author        = "Andrew Kane"
