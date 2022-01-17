@@ -27,13 +27,6 @@ module SCS
 
         dlload File.expand_path("../../vendor/scs/out/#{lib_name}.#{ext}", __dir__)
 
-        extern "size_t scs_sizeof_int(void)"
-        extern "size_t scs_sizeof_float(void)"
-
-        # TODO support other sizes
-        raise Error, "Unsupported int size" if scs_sizeof_int != 4
-        raise Error, "Unsupported float size" if scs_sizeof_float != 8
-
         typealias "scs_float", "double"
         typealias "scs_int", "int"
 
@@ -71,6 +64,7 @@ module SCS
         m::Info = struct [
           "scs_int iter",
           "char status[128]",
+          "char lin_sys_solver[128]",
           "scs_int status_val",
           "scs_int scale_updates",
           "scs_float pobj",

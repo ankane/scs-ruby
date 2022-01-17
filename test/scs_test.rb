@@ -2,7 +2,7 @@ require_relative "test_helper"
 
 class SCSTest < Minitest::Test
   def test_version
-    assert_equal "3.0.0", SCS.lib_version
+    assert_equal "3.1.0", SCS.lib_version
   end
 
   def test_direct

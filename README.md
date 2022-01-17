@@ -11,7 +11,7 @@
 Add this line to your application’s Gemfile:
 
 ```ruby
-gem 'scs'
+gem "scs"
 ```
 
 If installation fails, you may need to install [dependencies](#dependencies).
