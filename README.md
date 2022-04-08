@@ -37,7 +37,7 @@ solver.solve(data, cone)
 Default values shown
 
 ```ruby
-solver.solve(data, cone, {
+solver.solve(data, cone,
   normalize: true,            # heuristic data rescaling
   scale: 0.1,                 # if normalized, rescales by this factor
   adaptive_scale: true,       # heuristically adapt dual scale through the solve
@@ -54,7 +54,7 @@ solver.solve(data, cone, {
   acceleration_interval: 10,  # iterations to run Anderson acceleration
   write_data_filename: nil,   # filename to write data if set
   log_csv_filename: nil       # write csv logs of various quantities
-})
+)
 ```
 
 ## Direct vs Indirect
