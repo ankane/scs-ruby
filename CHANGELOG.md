@@ -1,6 +1,7 @@
 ## 0.3.3 (unreleased)
 
 - Updated SCS to 3.2.0
+- Added `Matrix` class
 
 ## 0.3.2 (2022-01-17)
 

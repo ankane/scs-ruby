@@ -2,6 +2,7 @@
 require "fiddle/import"
 
 # modules
+require "scs/matrix"
 require "scs/solver"
 require "scs/version"
 

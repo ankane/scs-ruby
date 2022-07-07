@@ -43,6 +43,22 @@ class SolverTest < Minitest::Test
     assert_elements_in_delta [0.5, 0.5], result[:s]
   end
 
+  def test_matrix
+    data = {
+      p: SCS::Matrix.from_dense([[3, -1], [-1, 2]]),
+      a: SCS::Matrix.from_dense([[-1, 1], [1, 0], [0, 1]]),
+      b: [-1, 0.3, -0.5],
+      c: [-1, -1]
+    }
+    cone = {z: 1, l: 2}
+
+    solver = SCS::Solver.new
+    result = solver.solve(data, cone, eps_abs: 1e-9, eps_rel: 1e-9, verbose: false)
+    assert_in_delta 1.235, result[:pobj]
+    assert_elements_in_delta [0.3, -0.7], result[:x]
+    assert_elements_in_delta [2.7, 2.1, 0], result[:y]
+  end
+
   def test_numo
     data = {
       a: Numo::NArray.cast([[1], [-1]]),

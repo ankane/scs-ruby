@@ -73,42 +73,35 @@ module SCS
       char_ptr[0, idx].map(&:chr).join
     end
 
-    # TODO add support sparse matrices
     def csc_matrix(mtx, upper: false)
-      mtx = mtx.to_a
+      mtx = Matrix.from_dense(mtx) unless mtx.is_a?(Matrix)
 
-      m, n = shape(mtx)
-
-      cx = []
-      ci = []
-      cp = []
-
-      # CSC format
-      # https://www.gormanalysis.com/blog/sparse-matrix-storage-formats/
-      cp << 0
-      n.times do |j|
-        mtx.each_with_index do |row, i|
-          if row[j] != 0 && (!upper || i <= j)
-            cx << row[j]
-            ci << i
+      if upper
+        # TODO improve performance
+        mtx = mtx.dup
+        mtx.m.times do |i|
+          mtx.n.times do |j|
+            mtx[i, j] = 0 if i > j
           end
         end
-        # cumulative column values
-        cp << cx.size
       end
+
+      csc = mtx.to_csc
 
       # construct matrix
       matrix = ffi::Matrix.malloc
-      matrix.x = float_array(cx)
-      matrix.i = int_array(ci)
-      matrix.p = int_array(cp)
-      matrix.m = m
-      matrix.n = n
+      matrix.x = float_array(csc[:value])
+      matrix.i = int_array(csc[:index])
+      matrix.p = int_array(csc[:start])
+      matrix.m = mtx.m
+      matrix.n = mtx.n
       matrix
     end
 
     def shape(a)
-      if defined?(Matrix) && a.is_a?(Matrix)
+      if a.is_a?(Matrix)
+        [a.m, a.n]
+      elsif defined?(::Matrix) && a.is_a?(::Matrix)
         [a.row_count, a.column_count]
       elsif defined?(Numo::NArray) && a.is_a?(Numo::NArray)
         a.shape
@@ -126,7 +119,7 @@ module SCS
 
       if data[:p]
         raise ArgumentError, "Bad p shape" if shape(data[:p]) != [n, n]
-        cdata.p = csc_matrix(data[:p])
+        cdata.p = csc_matrix(data[:p], upper: true)
       end
 
       raise ArgumentError, "Bad b size" if data[:b].to_a.size != m
