@@ -1,6 +1,6 @@
 require_relative "test_helper"
 
-class SCSTest < Minitest::Test
+class SolverTest < Minitest::Test
   def test_version
     assert_match(/\A\d+\.\d+\.\d+\z/, SCS.lib_version)
   end
