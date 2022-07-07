@@ -2,7 +2,7 @@ require_relative "test_helper"
 
 class SCSTest < Minitest::Test
   def test_version
-    assert_equal "3.1.1", SCS.lib_version
+    assert_match(/\A\d+\.\d+\.\d+\z/, SCS.lib_version)
   end
 
   def test_direct
