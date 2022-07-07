@@ -18,11 +18,16 @@ If installation fails, you may need to install [dependencies](#dependencies).
 
 ## Getting Started
 
-Prep the problem
+Prep the problem, like [this one](https://www.cvxgrp.org/scs/examples/python/basic_qp.html)
 
 ```ruby
-data = {a: [[1], [-1]], b: [1, 0], c: [-1]}
-cone = {q: [], l: 2}
+data = {
+  p: SCS::Matrix.from_dense([[3, -1], [-1, 2]]),
+  a: SCS::Matrix.from_dense([[-1, 1], [1, 0], [0, 1]]),
+  b: [-1, 0.3, -0.5],
+  c: [-1, -1]
+}
+cone = {z: 1, l: 2}
 ```
 
 And solve it
@@ -30,6 +35,30 @@ And solve it
 ```ruby
 solver = SCS::Solver.new
 solver.solve(data, cone)
+```
+
+## Data
+
+Matrices can be a sparse matrix
+
+```ruby
+a = SCS::Matrix.new(3, 2)
+a[0, 0] = 1
+a[1, 0] = 2
+# or
+SCS::Matrix.from_dense([[1, 0], [2, 0], [0, 0]])
+```
+
+Arrays can be Ruby arrays
+
+```ruby
+[1, 2, 3]
+```
+
+Or Numo arrays
+
+```ruby
+Numo::NArray.cast([1, 2, 3])
 ```
 
 ## Settings
