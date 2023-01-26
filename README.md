@@ -2,7 +2,7 @@
 
 [SCS](https://github.com/cvxgrp/scs) - the splitting conic solver - for Ruby
 
-:fire: Supports many different [problem types](https://www.cvxpy.org/tutorial/advanced/index.html#choosing-a-solver)
+Check out [Opt](https://github.com/ankane/opt) for a high-level interface
 
 [![Build Status](https://github.com/ankane/scs-ruby/workflows/build/badge.svg?branch=master)](https://github.com/ankane/scs-ruby/actions)
 
