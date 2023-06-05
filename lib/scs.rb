@@ -2,9 +2,9 @@
 require "fiddle/import"
 
 # modules
-require "scs/matrix"
-require "scs/solver"
-require "scs/version"
+require_relative "scs/matrix"
+require_relative "scs/solver"
+require_relative "scs/version"
 
 module SCS
   class Error < StandardError; end
