@@ -36,7 +36,7 @@ module SCS
           "ScsMatrix *a",
           "ScsMatrix *p",
           "scs_float *b",
-          "scs_float *c",
+          "scs_float *c"
         ]
 
         m::Cone = struct [
@@ -52,7 +52,7 @@ module SCS
           "scs_int ep",
           "scs_int ed",
           "scs_float *p",
-          "scs_int psize",
+          "scs_int psize"
         ]
 
         m::Solution = struct [
