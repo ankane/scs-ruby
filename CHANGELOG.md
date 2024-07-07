@@ -1,3 +1,7 @@
+## 0.4.2 (unreleased)
+
+- Updated SCS to 3.2.6
+
 ## 0.4.1 (2023-04-09)
 
 - Updated SCS to 3.2.3
