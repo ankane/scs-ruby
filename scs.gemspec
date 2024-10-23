@@ -15,4 +15,6 @@ Gem::Specification.new do |spec|
   spec.extensions    = ["ext/scs/extconf.rb"]
 
   spec.required_ruby_version = ">= 3.1"
+
+  spec.add_dependency "fiddle"
 end
