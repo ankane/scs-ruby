@@ -62,8 +62,6 @@ class SolverTest < Minitest::Test
   def test_numo
     skip if RUBY_PLATFORM == "java"
 
-    require "numo/narray"
-
     data = {
       a: Numo::NArray.cast([[1], [-1]]),
       b: Numo::NArray.cast([1, 0]),
