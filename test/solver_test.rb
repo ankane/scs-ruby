@@ -60,7 +60,7 @@ class SolverTest < Minitest::Test
   end
 
   def test_numo
-    skip if RUBY_PLATFORM == "java"
+    skip if ["jruby", "truffleruby"].include?(RUBY_ENGINE)
 
     data = {
       a: Numo::NArray.cast([[1], [-1]]),
