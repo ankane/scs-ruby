@@ -1,3 +1,7 @@
+## 0.5.1 (unreleased)
+
+- Fixed memory management
+
 ## 0.5.0 (2024-10-23)
 
 - Dropped support for Ruby < 3.1

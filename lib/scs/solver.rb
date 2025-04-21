@@ -2,6 +2,7 @@ module SCS
   class Solver
     def initialize(indirect: false)
       @ffi = indirect ? FFI::Indirect : FFI::Direct
+      @refs = []
     end
 
     def solve(data, cone, **settings)
@@ -45,6 +46,8 @@ module SCS
         cone_time: info.cone_time,
         accel_time: info.accel_time
       }
+    ensure
+      @refs.clear
     end
 
     private
@@ -55,7 +58,9 @@ module SCS
 
     def float_array(arr)
       # SCS float = double
-      Fiddle::Pointer[arr.to_a.pack("d*")]
+      ptr = Fiddle::Pointer[arr.to_a.pack("d*")]
+      @refs << ptr
+      ptr
     end
 
     def read_float_array(ptr, size)
@@ -65,7 +70,9 @@ module SCS
 
     def int_array(arr)
       # SCS int = int
-      Fiddle::Pointer[arr.to_a.pack("i!*")]
+      ptr = Fiddle::Pointer[arr.to_a.pack("i!*")]
+      @refs << ptr
+      ptr
     end
 
     def read_string(char_ptr)
@@ -95,6 +102,7 @@ module SCS
       matrix.p = int_array(csc[:start])
       matrix.m = mtx.m
       matrix.n = mtx.n
+      @refs << matrix
       matrix
     end
 
