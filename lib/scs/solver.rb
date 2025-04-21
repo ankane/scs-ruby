@@ -10,7 +10,7 @@ module SCS
       ccone = create_cone(cone)
 
       solution = calloc(ffi::Solution.size) # alloc clear memory
-      info = ffi::Info.malloc
+      info = ffi::Info.malloc(Fiddle::RUBY_FREE)
 
       ffi.scs(cdata, ccone, settings, solution, info)
 
@@ -89,7 +89,7 @@ module SCS
       csc = mtx.to_csc
 
       # construct matrix
-      matrix = ffi::Matrix.malloc
+      matrix = ffi::Matrix.malloc(Fiddle::RUBY_FREE)
       matrix.x = float_array(csc[:value])
       matrix.i = int_array(csc[:index])
       matrix.p = int_array(csc[:start])
@@ -112,7 +112,7 @@ module SCS
 
     def create_data(data)
       m, n = shape(data[:a])
-      cdata = ffi::Data.malloc
+      cdata = ffi::Data.malloc(Fiddle::RUBY_FREE)
       cdata.m = m
       cdata.n = n
       cdata.a = csc_matrix(data[:a])
@@ -131,7 +131,7 @@ module SCS
     end
 
     def create_cone(cone)
-      ccone = ffi::Cone.malloc
+      ccone = ffi::Cone.malloc(Fiddle::RUBY_FREE)
       ccone.z = cone[:z].to_i
       ccone.l = cone[:l].to_i
       ccone.bu = float_array(cone[:bu])
@@ -152,7 +152,7 @@ module SCS
     end
 
     def create_settings(settings)
-      set = ffi::Settings.malloc
+      set = ffi::Settings.malloc(Fiddle::RUBY_FREE)
       ffi.scs_set_default_settings(set)
 
       # hack for setting members with []=
