@@ -1,4 +1,4 @@
-## 0.5.1 (unreleased)
+## 0.5.1 (2025-05-04)
 
 - Fixed memory management
 
