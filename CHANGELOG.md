@@ -1,3 +1,7 @@
+## 0.5.2 (unreleased)
+
+- Updated SCS to 3.2.8
+
 ## 0.5.1 (2025-05-04)
 
 - Fixed memory management

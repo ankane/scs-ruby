@@ -49,6 +49,8 @@ module SCS
           "scs_int qsize",
           "scs_int *s",
           "scs_int ssize",
+          "scs_int *cs",
+          "scs_int cssize",
           "scs_int ep",
           "scs_int ed",
           "scs_float *p",
