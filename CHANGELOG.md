@@ -1,4 +1,4 @@
-## 0.5.2 (unreleased)
+## 0.5.2 (2025-08-13)
 
 - Updated SCS to 3.2.8
 
