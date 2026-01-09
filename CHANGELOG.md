@@ -1,3 +1,7 @@
+## 0.5.5 (unreleased)
+
+- Updated SCS to 3.2.11
+
 ## 0.5.4 (2026-01-02)
 
 - Updated SCS to 3.2.10
