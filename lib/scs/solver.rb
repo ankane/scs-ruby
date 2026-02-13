@@ -11,7 +11,7 @@ module SCS
       ccone = create_cone(cone)
 
       # alloc pointers and hold refs
-      solution_ptr = calloc(ffi::Solution.size) # alloc clear memory
+      solution_ptr = Fiddle::Pointer["\x00" * ffi::Solution.size] # alloc clear memory
       x_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.n, Fiddle::RUBY_FREE)
       y_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.m, Fiddle::RUBY_FREE)
       s_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.m, Fiddle::RUBY_FREE)
@@ -192,11 +192,6 @@ module SCS
       else
         v
       end
-    end
-
-    # alloc clear memory
-    def calloc(size)
-      Fiddle::Pointer["\x00" * size]
     end
 
     def ffi
