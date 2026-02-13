@@ -10,12 +10,21 @@ module SCS
       settings = create_settings(settings)
       ccone = create_cone(cone)
 
-      solution = calloc(ffi::Solution.size) # alloc clear memory
+      # alloc pointers and hold refs
+      solution_ptr = calloc(ffi::Solution.size) # alloc clear memory
+      x_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.n, Fiddle::RUBY_FREE)
+      y_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.m, Fiddle::RUBY_FREE)
+      s_ptr = Fiddle::Pointer.malloc(Fiddle::SIZEOF_DOUBLE * cdata.m, Fiddle::RUBY_FREE)
+
+      solution = ffi::Solution.new(solution_ptr)
+      solution.x = x_ptr
+      solution.y = y_ptr
+      solution.s = s_ptr
+
       info = ffi::Info.malloc(Fiddle::RUBY_FREE)
 
       ffi.scs(cdata, ccone, settings, solution, info)
 
-      solution = ffi::Solution.new(solution)
       x = read_float_array(solution.x, cdata.n)
       y = read_float_array(solution.y, cdata.m)
       s = read_float_array(solution.s, cdata.m)

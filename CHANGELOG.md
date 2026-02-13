@@ -1,3 +1,7 @@
+## 0.5.6 (unreleased)
+
+- Fixed memory leak in `solve` method
+
 ## 0.5.5 (2026-01-11)
 
 - Updated SCS to 3.2.11
