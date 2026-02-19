@@ -8,10 +8,10 @@ jobs:
         os: [ubuntu-latest, macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
         with:
           submodules: true
-      - if: ${{ startsWith(matrix.os, 'ubuntu') }}
+      - if: ${{ runner.os == 'Linux' }}
         run: sudo apt-get install libblas-dev liblapack-dev
       - uses: ruby/setup-ruby@v1
         with:
