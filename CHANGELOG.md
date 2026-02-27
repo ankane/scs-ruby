@@ -1,4 +1,4 @@
-## 0.5.6 (unreleased)
+## 0.5.6 (2026-02-27)
 
 - Fixed memory leak in `solve` method
 
