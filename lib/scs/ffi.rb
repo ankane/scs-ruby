@@ -63,6 +63,19 @@ module SCS
           "scs_float *s"
         ]
 
+        m::AaStats = struct [
+          "scs_int iter",
+          "scs_int n_accept",
+          "scs_int n_reject_lapack",
+          "scs_int n_reject_rank0",
+          "scs_int n_reject_nonfinite",
+          "scs_int n_reject_weight_cap",
+          "scs_int n_safeguard_reject",
+          "scs_int last_rank",
+          "scs_float last_aa_norm",
+          "scs_float last_regularization"
+        ]
+
         m::Info = struct [
           "scs_int iter",
           "char status[128]",
@@ -81,6 +94,7 @@ module SCS
           "scs_float solve_time",
           "scs_float scale",
           "scs_float comp_slack",
+          {aa_stats: m::AaStats},
           "scs_int rejected_accel_steps",
           "scs_int accepted_accel_steps",
           "scs_float lin_sys_time",
@@ -92,6 +106,7 @@ module SCS
           "scs_int normalize",
           "scs_float scale",
           "scs_int adaptive_scale",
+          "scs_int adaptive_diag_scale",
           "scs_float rho_x",
           "scs_int max_iters",
           "scs_float eps_abs",
@@ -103,6 +118,9 @@ module SCS
           "scs_int warm_start",
           "scs_int acceleration_lookback",
           "scs_int acceleration_interval",
+          "scs_int acceleration_type_1",
+          "scs_float acceleration_regularization",
+          "scs_float acceleration_relaxation",
           "const char* write_data_filename",
           "const char *log_csv_filename"
         ]

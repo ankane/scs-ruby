@@ -1,5 +1,6 @@
 ## 0.6.0 (unreleased)
 
+- Updated SCS to 3.3.1
 - Dropped support for Ruby < 3.3
 
 ## 0.5.6 (2026-02-27)
