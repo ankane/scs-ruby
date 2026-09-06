@@ -1,4 +1,4 @@
-## 0.6.0 (unreleased)
+## 0.6.0 (2026-09-05)
 
 - Updated SCS to 3.3.1
 - Dropped support for Ruby < 3.3
