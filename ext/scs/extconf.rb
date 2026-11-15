@@ -13,7 +13,7 @@ Dir.chdir(scs) do
   case arch
   when /mingw/
     inreplace("scs.mk", "USE_LAPACK = 1", "USE_LAPACK = 0")
-    system("ridk exec make", exception: true)
+    system("ridk", "exec", "make", exception: true)
   else
     # remove -march=native for portability
     system("make", "OPT=-O3 -fno-math-errno", exception: true)
